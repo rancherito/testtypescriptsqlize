@@ -1,4 +1,5 @@
 import { Router, Request, Response } from 'express';
+import {AppDataSource}  from '../database/data-source'
 
 const router = Router();
 
@@ -14,5 +15,15 @@ router.post('/', (req: Request, res: Response) => {
   const nuevoUsuario = req.body;
   res.json(nuevoUsuario);
 });
+
+
+
+router.get('/users', async (req: Request, res: Response) => {
+
+  AppDataSource.manager.
+  const users = await User.findAll();
+  res.json(users);
+});
+
 
 export default router;

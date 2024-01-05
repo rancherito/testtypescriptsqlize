@@ -1,6 +1,15 @@
 import express, { Request, Response } from 'express';
-import router from './routes/index';
-import User from './database/models/user';
+import router from './routes/routes';
+
+
+import { AppDataSource } from './database/data-source';
+
+AppDataSource.initialize()
+    .then(() => {
+        // here you can start to work with your database
+        console.log('Conectado a la base de datos x2');
+    })
+    .catch((error) => console.log(error))
 
 
 
@@ -8,20 +17,6 @@ const app = express();
 app.use(express.json());
 
 app.use('/api', router);
-
-app.get('/users', async (req: Request, res: Response) => {
-  const users = await User.findAll();
-  res.json(users);
-});
-
-app.get('/users/:id', async (req: Request, res: Response) => {
-  const user = await User.findOne({
-    where: {
-      id: req.params.id
-    }
-  });
-  res.json(user);
-});
 
 
 app.listen(3000, () => {
