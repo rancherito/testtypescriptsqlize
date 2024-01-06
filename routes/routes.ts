@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express';
-import PhotoRepo from '../database/rempository-models'
+import PhotoRepo from '../config/rempository-models'
 import { PhotoModel } from '../models/Photo';
 import { randomUUID } from 'crypto';
 

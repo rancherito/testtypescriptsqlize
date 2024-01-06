@@ -1,10 +1,9 @@
-import express, { Request, Response } from 'express';
-//import cors
+import express from 'express';
 import cors from 'cors'
 import router from './routes/routes';
 
 
-import { AppDataSource } from './database/data-source';
+import { AppDataSource } from './config/data-source';
 
 AppDataSource.initialize()
     .then(() => {
