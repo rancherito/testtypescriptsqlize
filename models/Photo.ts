@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryColumn } from "typeorm"
 
-@Entity()
-export class Photo {
+@Entity('photo')
+export class PhotoModel {
     @PrimaryColumn()
     id: string
 
@@ -29,5 +29,4 @@ export class Photo {
         this.views = views
         this.isPublished = isPublished
     }
-
 }
