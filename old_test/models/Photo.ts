@@ -1,3 +1,4 @@
+import { randomUUID } from "crypto"
 import { Entity, Column, PrimaryColumn } from "typeorm"
 
 @Entity('photo')
@@ -21,7 +22,7 @@ export class PhotoModel {
     isPublished: boolean
 
 
-    constructor(pid: string, name: string, description: string, filename: string, views: number, isPublished: boolean) {
+    constructor(pid: string = randomUUID(), name: string, description: string, filename: string, views: number, isPublished: boolean) {
         this.id = pid
         this.name = name
         this.description = description
